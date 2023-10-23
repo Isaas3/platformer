@@ -64,7 +64,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"hop",
-"speed": 4.0
+"speed": 9.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tagh6"]
