@@ -44,3 +44,15 @@ position_smoothing_enabled = true
 
 [node name="toad" parent="TileMap" instance=ExtResource("4_7lpux")]
 position = Vector2(184, 528)
+
+[node name="toad2" parent="TileMap" instance=ExtResource("4_7lpux")]
+position = Vector2(144, 600)
+
+[node name="toad3" parent="TileMap" instance=ExtResource("4_7lpux")]
+position = Vector2(200, 448)
+
+[node name="toad4" parent="TileMap" instance=ExtResource("4_7lpux")]
+position = Vector2(112, 368)
+
+[node name="toad5" parent="TileMap" instance=ExtResource("4_7lpux")]
+position = Vector2(272, 360)

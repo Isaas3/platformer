@@ -4,7 +4,7 @@ var is_dying = false
 var is_jumping = false
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -300.0
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -63,8 +63,21 @@ func die():
 		
 	is_dying = true
 	animated_sprite_2d.play("die")
+	await move_player_up_and_down()
 	get_tree().reload_current_scene()
 	
 func move_player_up_and_down():
 	var start_position = position
 	var up_position = start_position + Vector2(0, -100)
+	var down_position = start_position + Vector2(0,600)
+	
+	while position.y > up_position.y:
+		position.y -= 4
+		await get_tree().create_timer(0.01).timeout
+		
+	while position.y < down_position.y:
+		position.y += 4
+		await get_tree().create_timer(0.01).timeout
+
+func on_DeathTimer_timeout():
+	get_tree().reload_current_scene()
