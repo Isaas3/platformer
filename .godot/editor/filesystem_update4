@@ -3,3 +3,6 @@ res://big_toad.gd
 res://world.tscn
 res://player.tscn
 res://toad.tscn
+res://coin.gd
+res://coin.tscn
+res://world.gd
