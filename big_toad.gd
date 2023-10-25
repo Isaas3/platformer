@@ -14,9 +14,9 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	if !$RayCast2D.is_colliding() && is_on_floor():
-		flip() """9:25"""
+		flip()
 	# Set the horizontal velocity to a constant negative value to move left
-	velocity.x = -SPEED
+	velocity.x = SPEED
 	
 	update_animation()
 	move_and_slide()
@@ -30,3 +30,11 @@ func _on_hitbox_body_entered(body):
 		body.velocity.y = -200
 		is_alive = false
 		queue_free()
+
+func flip():
+	facing_right = !facing_right
+	scale.x = abs(scale.x) * -1
+	if facing_right:
+		SPEED = abs(SPEED)
+	else:
+		SPEED = abs(SPEED) * -1

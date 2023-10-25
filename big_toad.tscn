@@ -3,35 +3,35 @@
 [ext_resource type="Script" path="res://big_toad.gd" id="1_728hs"]
 [ext_resource type="Texture2D" uid="uid://djc8fv8kvubs" path="res://super-bazza-bogan/toad2.png" id="2_62ff5"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4uocq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1d2wp"]
 atlas = ExtResource("2_62ff5")
 region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ecap8"]
-atlas = ExtResource("2_62ff5")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6gw8h"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5o14n"]
 atlas = ExtResource("2_62ff5")
 region = Rect2(16, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qc4wu"]
-atlas = ExtResource("2_62ff5")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dloa2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7b7hr"]
 atlas = ExtResource("2_62ff5")
 region = Rect2(32, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_855vb"]
-atlas = ExtResource("2_62ff5")
-region = Rect2(96, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rc4x2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_foqb5"]
 atlas = ExtResource("2_62ff5")
 region = Rect2(48, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xlg1u"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5cle"]
+atlas = ExtResource("2_62ff5")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yar0"]
+atlas = ExtResource("2_62ff5")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtb0v"]
+atlas = ExtResource("2_62ff5")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58kvu"]
 atlas = ExtResource("2_62ff5")
 region = Rect2(112, 0, 16, 16)
 
@@ -39,32 +39,32 @@ region = Rect2(112, 0, 16, 16)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4uocq")
+"texture": SubResource("AtlasTexture_1d2wp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ecap8")
+"texture": SubResource("AtlasTexture_5o14n")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6gw8h")
+"texture": SubResource("AtlasTexture_7b7hr")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qc4wu")
+"texture": SubResource("AtlasTexture_foqb5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_dloa2")
+"texture": SubResource("AtlasTexture_v5cle")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_855vb")
+"texture": SubResource("AtlasTexture_3yar0")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_rc4x2")
+"texture": SubResource("AtlasTexture_wtb0v")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xlg1u")
+"texture": SubResource("AtlasTexture_58kvu")
 }],
 "loop": true,
 "name": &"hop",
-"speed": 5.0
+"speed": 9.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qrcwd"]
@@ -93,7 +93,7 @@ position = Vector2(0, -4.5)
 shape = SubResource("RectangleShape2D_20ldq")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(-12, -9)
+position = Vector2(-11, -9)
 target_position = Vector2(0, 15)
 
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
