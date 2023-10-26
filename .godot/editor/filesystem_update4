@@ -6,3 +6,6 @@ res://toad.tscn
 res://coin.gd
 res://coin.tscn
 res://world.gd
+res://global.gd
+res://coin_gui.gd
+res://coin_gui.tscn
