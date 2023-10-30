@@ -10,3 +10,6 @@ res://start.tscn
 res://gameover.gd
 res://gameover.tscn
 res://player.gd
+res://questionblock.gd
+res://questionblock.tscn
+res://global.gd

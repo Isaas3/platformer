@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://njmjtb4q1rsa"]
+
+[ext_resource type="Texture2D" uid="uid://b0oijndcifk1y" path="res://super-bazza-bogan/beerbottle.png" id="1_3nqhn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_febmt"]
+size = Vector2(9, 20)
+
+[node name="beer" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -15)
+texture = ExtResource("1_3nqhn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -11)
+shape = SubResource("RectangleShape2D_febmt")
+
+[node name="Area2D" type="Area2D" parent="."]
