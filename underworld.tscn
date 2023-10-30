@@ -52,7 +52,7 @@ position = Vector2(40, 608)
 zoom = Vector2(2.5, 2.5)
 limit_left = 0
 limit_top = 0
-limit_right = 1550
+limit_right = 1152
 limit_bottom = 650
 
 [node name="coin_gui" parent="." instance=ExtResource("5_773vk")]
