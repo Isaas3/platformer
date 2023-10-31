@@ -13,3 +13,5 @@ res://player.gd
 res://questionblock.gd
 res://questionblock.tscn
 res://global.gd
+res://beer.gd
+res://beer.tscn
