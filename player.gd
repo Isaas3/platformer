@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var is_dying = false
 var is_jumping = false
-
+var is_big = false
 const SPEED = 300.0
 const JUMP_VELOCITY = -350.0
 
@@ -55,7 +55,10 @@ func update_animation(direction):
 
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("Enemy") and body.is_alive:
-		die()
+		if is_big:
+			become_small()
+		else:
+			die()
 		
 func die():
 	if is_dying:
@@ -87,3 +90,12 @@ func move_player_up_and_down():
 
 func on_DeathTimer_timeout():
 	get_tree().reload_current_scene()
+
+func become_big():
+	is_big = true
+	self.scale = Vector2(1.5, 1.5)
+
+func become_small():
+	is_big = false
+	self.scale = Vector2(1, 1)
+	
