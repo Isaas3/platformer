@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsvtahvn5tmc2"]
+
+[ext_resource type="Texture2D" uid="uid://cwf8logwky586" path="res://super-bazza-bogan/thong.png" id="1_045f2"]
+[ext_resource type="Script" path="res://thong_power_up.gd" id="1_m6pk3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7y0ke"]
+radius = 5.0
+
+[node name="thong_power_up" type="Area2D"]
+script = ExtResource("1_m6pk3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -17)
+texture = ExtResource("1_045f2")
+hframes = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("CapsuleShape2D_7y0ke")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

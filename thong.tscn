@@ -1,17 +1,69 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgb883j2xifle"]
+[gd_scene load_steps=11 format=3 uid="uid://cwkfm0qx6c5ei"]
 
 [ext_resource type="Texture2D" uid="uid://cwf8logwky586" path="res://super-bazza-bogan/thong.png" id="1_lvjlt"]
+[ext_resource type="Script" path="res://thong.gd" id="1_qxwkk"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7y0ke"]
-radius = 5.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8rpl"]
+atlas = ExtResource("1_lvjlt")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8vx7a"]
+atlas = ExtResource("1_lvjlt")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ceed2"]
+atlas = ExtResource("1_lvjlt")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxdu7"]
+atlas = ExtResource("1_lvjlt")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7l77"]
+atlas = ExtResource("1_lvjlt")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_opg5m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8rpl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8vx7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ceed2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxdu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7l77")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_731tv"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y1iv4"]
+radius = 15.0
 
 [node name="thong" type="Area2D"]
+script = ExtResource("1_qxwkk")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -17)
-texture = ExtResource("1_lvjlt")
-hframes = 5
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_opg5m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -16)
-shape = SubResource("CapsuleShape2D_7y0ke")
+shape = SubResource("CapsuleShape2D_731tv")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_y1iv4")
+
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]

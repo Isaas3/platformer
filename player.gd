@@ -1,19 +1,25 @@
 extends CharacterBody2D
 
+var is_firing_thong = false
+var can_fire_thong = false
 var is_dying = false
 var is_jumping = false
 var is_big = false
 const SPEED = 300.0
 const JUMP_VELOCITY = -350.0
+var player_direction = 1
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var death_timer = $death_timer
+@onready var thong_fire_timer = $ThongFireTimer
 
 func _ready():
 	add_to_group("Player")
 	death_timer.connect("timeout", Callable(self, "_on_DeathTimer_timeout"))
+	thong_fire_timer.connect("timeout", Callable(self, "_on_ThongFireTimer_timeout"))
+
 
 func _physics_process(delta):
 	if is_dying:
@@ -25,6 +31,9 @@ func _physics_process(delta):
 	else:
 		is_jumping = false
 
+
+	if Global.current_state == Global.PlayerState.THONG and Input.is_action_just_pressed("fire"):
+		fire_thong()
 	# Handle Jump.
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -41,17 +50,29 @@ func _physics_process(delta):
 	move_and_slide()
 
 func update_animation(direction):
-	if is_dying:
+	if is_dying or is_firing_thong:
 		return
 		
-	if is_jumping:
-		animated_sprite_2d.play("jump")
-	if direction != 0:
-		animated_sprite_2d.flip_h = (direction < 0)
-		animated_sprite_2d.play("run")
-	else:
-		animated_sprite_2d.play("idle")
+	
+	match Global.current_state:
+		Global.PlayerState.SMALL, Global.PlayerState.BIG:
+			if is_jumping:
+				animated_sprite_2d.play("jump")
+			if direction != 0:
+				animated_sprite_2d.flip_h = (direction < 0)
+				animated_sprite_2d.play("run")
+			else:
+				animated_sprite_2d.play("idle")
+		Global.PlayerState.THONG:
+			if is_jumping:
+				animated_sprite_2d.play("thong_jump")
+			if direction != 0:
+				animated_sprite_2d.flip_h = (direction < 0)
+				animated_sprite_2d.play("thong_run")
+			else:
+				animated_sprite_2d.play("thong_idle")
 
+"""18:50"""
 
 func _on_hitbox_body_entered(body):
 	if body.is_in_group("Enemy") and body.is_alive:

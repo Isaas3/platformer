@@ -107,4 +107,6 @@ shape = SubResource("RectangleShape2D_11qs8")
 
 [node name="death_timer" type="Timer" parent="."]
 
+[node name="ThongFireTimer" type="Timer" parent="."]
+
 [connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
