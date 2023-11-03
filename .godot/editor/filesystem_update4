@@ -6,3 +6,13 @@ res://questionblock.gd
 res://global.gd
 res://player.tscn
 res://player.gd
+res://world.tscn
+res://underworld.tscn
+res://toad.tscn
+res://big_toad.tscn
+res://coin.tscn
+res://coin_gui.tscn
+res://start.tscn
+res://gameover.tscn
+res://questionblock.tscn
+res://beer.tscn

@@ -19,7 +19,7 @@ func bump_block():
 	$Sprite2D.frame = 1 # Switch to the second frame to indicate "used" state
 	
 	match Global.current_state: #Check the player's current_state
-		Global.PlayerState.Small:
+		Global.PlayerState.SMALL:
 			Global.spawn_beer_bottle(self.global_position + Vector2(0, -20))
 		Global.PlayerState.BIG, Global.PlayerState.THONG:
 			Global.spawn_thong_power_up(self.global_position + Vector2(0, -30))

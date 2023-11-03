@@ -145,5 +145,8 @@ shape = SubResource("SegmentShape2D_qti0o")
 [node name="questionblock" parent="." instance=ExtResource("10_uke0j")]
 position = Vector2(32, 512)
 
+[node name="questionblock2" parent="." instance=ExtResource("10_uke0j")]
+position = Vector2(128, 496)
+
 [connection signal="body_entered" from="interact" to="." method="_on_interact_body_entered"]
 [connection signal="body_entered" from="transition" to="." method="_on_transition_body_entered"]
