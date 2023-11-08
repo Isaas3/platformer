@@ -90,6 +90,7 @@ func die():
 		
 	is_dying = true
 	animated_sprite_2d.play("die")
+	$deathSound.play()
 	await move_player_up_and_down()
 	Global.player_lives -= 1
 	
@@ -143,4 +144,5 @@ func fire_thong():
 func _on_ThongFireTimer_timeout():
 	is_firing_thong = false
 	
-	
+func HitSound():
+	$HitSound.play()
